@@ -4,6 +4,7 @@ namespace SampleMultiThread
     {
         const int LOOP_COUNT = 10000;
         const int SLEEP_MS = 1;
+        const int SPLIT_SIZE = 10;
 
         static Job Create<T>() where T : Job, new()
         {
