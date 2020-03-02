@@ -16,6 +16,7 @@ namespace SampleMultiThread
                 Job.Create<JobMultiThreadParallelForWithInterlocked>(),
                 Job.Create<JobMultiThreadSplitted>(),
                 Job.Create<JobMultiThreadSplittedWithScopedLock>(),
+                Job.Create<JobMultiThreadSplittedWithInterlocked>(),
             };
 
             foreach(var job in jobList)
