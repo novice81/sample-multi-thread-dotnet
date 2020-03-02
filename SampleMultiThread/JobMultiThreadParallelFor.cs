@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace SampleMultiThread
 {
-    class JobMultiThread : Job
+    class JobMultiThreadParallelFor : Job
     {
-        public string Name => "JobMultiThread";
+        public string Name => "JobMultiThreadParallelFor";
 
         public long Result { get; private set; }
 

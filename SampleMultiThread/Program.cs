@@ -10,11 +10,14 @@ namespace SampleMultiThread
         {
             var stopwatch = new Stopwatch();
 
-            var jobList = new List<Job>{ Job.Create<JobSingleThread>(), Job.Create<JobMultiThread>() };
+            var jobList = new List<Job>{ 
+                Job.Create<JobSingleThread>(), 
+                Job.Create<JobMultiThreadParallelFor>(),
+            };
 
             foreach(var job in jobList)
             {
-                stopwatch.Start();
+                stopwatch.Restart();
 
                 job.Batch();
 
