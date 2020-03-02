@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Threading;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace SampleMultiThread
@@ -10,13 +10,18 @@ namespace SampleMultiThread
         {
             var stopwatch = new Stopwatch();
 
-            stopwatch.Start();
+            var jobList = new List<Job>{ Job.Create<JobSingleThread>(), Job.Create<JobMultiThread>() };
 
-            Thread.Sleep(100);
+            foreach(var job in jobList)
+            {
+                stopwatch.Start();
 
-            stopwatch.Stop();
+                job.Batch();
 
-            Console.WriteLine($"{stopwatch.Elapsed.TotalSeconds} secs");
+                stopwatch.Stop();
+
+                Console.WriteLine($"{job.Name} - {stopwatch.Elapsed.TotalSeconds} secs, Result : {job.Result}");
+            }
         }
     }
 }
